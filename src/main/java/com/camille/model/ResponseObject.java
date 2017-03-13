@@ -1,5 +1,7 @@
 package com.camille.model;
 
+import java.util.ArrayList;
+
 /**
  * Created by lizhihui on 09/02/2017.
  */

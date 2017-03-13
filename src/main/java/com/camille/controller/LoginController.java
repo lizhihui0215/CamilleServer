@@ -29,7 +29,11 @@ public class LoginController {
     @PostMapping("/api/login")
     @ResponseBody
     public ResponseObject<User> loginWith(@RequestBody Map<String, String> parameters){
-        User user = this.userService.findByUsernameAndPassword(parameters.get("username"), parameters.get("password"));
+        User user = this.userService.findFirstByUsername(parameters.get("username"));
+
+        if (user == null) return new ResponseObject<User>(1,"the user may not exists!", null);
+
+        if (!user.getPassword().equals(parameters.get("password"))) return new ResponseObject<User>(1,"the password was wrong!", null);
 
         return new ResponseObject<User>(0,"success",user);
     }
