@@ -59,7 +59,6 @@ public class ProductController {
     @PostMapping("/api/delete/products")
     @ResponseBody
     public ResponseObject<String> delete(@RequestBody List<Product> products) {
-
         this.productServices.delete(products);
 
         return new ResponseObject(0,"success","success");

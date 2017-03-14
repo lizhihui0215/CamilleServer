@@ -26,6 +26,7 @@ public class Product {
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     public String uuid;
+    public String serialNumber;
     public String name;
     public String brand;
     public String unit;
@@ -39,7 +40,8 @@ public class Product {
     public Product() {
     }
 
-    public Product(String name, String brand, String unit, Integer count, Float price, Float money, String inventory, Season season, Date inDate) {
+    public Product(String serialNumber, String name, String brand, String unit, Integer count, Float price, Float money, String inventory, Season season, Date inDate) {
+        this.serialNumber = serialNumber;
         this.name = name;
         this.brand = brand;
         this.unit = unit;
@@ -49,6 +51,14 @@ public class Product {
         this.inventory = inventory;
         this.season = season;
         this.inDate = inDate;
+    }
+
+    public String getSerialNumber() {
+        return serialNumber;
+    }
+
+    public void setSerialNumber(String serialNumber) {
+        this.serialNumber = serialNumber;
     }
 
     public String getUuid() {
