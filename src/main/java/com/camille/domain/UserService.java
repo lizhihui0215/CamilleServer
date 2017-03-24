@@ -12,3 +12,4 @@ import org.springframework.stereotype.Service;
 public interface UserService extends CrudRepository<User, Long> {
     User findFirstByUsername(String username);
 }
+
